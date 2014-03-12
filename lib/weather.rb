@@ -1,4 +1,17 @@
 $LOAD_PATH.unshift(File.expand_path('lib'), __FILE__)
-puts $LOAD_PATH
-file = File.open('/Users/stevenmagelowitz/gSchoolWork/weather_data/lib/weather_data.txt')
-file.readlines()
+
+class WeatherData
+
+  def initialize
+    @weather_array = []
+  end
+
+
+  def read_file
+    file = File.open('lib/weather_data.txt')
+    file.readlines.each do |line|
+      @weather_array << line
+    end
+    @weather_array
+  end
+end
